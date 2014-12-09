@@ -4,7 +4,7 @@ module Holidays
   #
   # Definitions loaded: data/ca.yaml, data/north_america_informal.yaml
   #
-  # To use the definitions in this file, load it right after you load the 
+  # To use the definitions in this file, load it right after you load the
   # Holiday gem:
   #
   #   require 'holidays'
@@ -22,7 +22,7 @@ module Holidays
             {:function => lambda { |year| Holidays.easter(year) }, :function_id => "easter(year)", :name => "Easter Sunday", :regions => [:ca]},
             {:function => lambda { |year| Holidays.easter(year)+1 }, :function_id => "easter(year)+1", :type => :informal, :name => "Easter Monday", :regions => [:ca]}],
       1 => [{:mday => 1, :name => "New Year's Day", :regions => [:ca]},
-            {:mday => 2, :name => "New Year's", :regions => [:ca_qc]}],
+            {:mday => 2, :name => "New Year's", :regions => [:ca_qc, :ca]}],
       2 => [{:wday => 1, :week => 3, :name => "Family Day", :regions => [:ca_ab, :ca_on, :ca_sk]},
             {:wday => 1, :week => 3, :name => "Louis Riel Day", :regions => [:ca_mb]},
             {:wday => 1, :week => 3, :name => "Nova Scotia Heritage Day", :regions => [:ca_ns]},
@@ -54,8 +54,10 @@ module Holidays
       10 => [{:wday => 1, :week => 2, :name => "Thanksgiving", :regions => [:ca]},
             {:mday => 31, :type => :informal, :name => "Halloween", :regions => [:us, :ca]}],
       11 => [{:mday => 11, :name => "Remembrance Day", :regions => [:ca]}],
-      12 => [{:mday => 25, :name => "Christmas Day", :regions => [:ca]},
-            {:mday => 26, :name => "Boxing Day", :regions => [:ca]}],
+      12 => [{:mday => 24, :name => "Christmas Eve", :regions => [:ca]},
+             {:mday => 25, :name => "Christmas Day", :regions => [:ca]},
+            {:mday => 26, :name => "Boxing Day", :regions => [:ca]},
+            {:mday => 31, :name => "New Years Eve", :regions => [:ca]}],
       4 => [{:mday => 1, :type => :informal, :name => "April Fool's Day", :regions => [:us, :ca]},
             {:mday => 22, :type => :informal, :name => "Earth Day", :regions => [:us, :ca]}]
       }
