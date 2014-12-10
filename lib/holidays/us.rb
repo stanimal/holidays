@@ -18,10 +18,10 @@ module Holidays
 
     def self.holidays_by_month
       {
-              0 => [{:function => lambda { |year| Holidays.easter(year)-2 }, :function_id => "easter(year)-2", :type => :informal, :name => "Good Friday", :regions => [:us]},
+      0 => [{:function => lambda { |year| Holidays.easter(year)-2 }, :function_id => "easter(year)-2", :type => :informal, :name => "Good Friday", :regions => [:us]},
             {:function => lambda { |year| Holidays.easter(year) }, :function_id => "easter(year)", :type => :informal, :name => "Easter Sunday", :regions => [:us]}],
-      1 => [{:mday => 1, :observed => lambda { |date| Holidays.to_weekday_if_weekend(date) }, :observed_id => "to_weekday_if_weekend", :name => "New Year's Day", :regions => [:us]},
-            {:mday => 2, :name => "New Year's", :regions => [:us]},
+      1 => [{:mday => 1, :observed => lambda { |date| Holidays.to_weekday_if_weekend(date) }, :observed_id => "to_weekday_if_weekend", :name => "New Year's Day", :regions => [:us, :ca]},
+            {:mday => 2, :name => "New Year's", :regions => [:us, :ca]},
             {:wday => 1, :week => 3, :name => "Martin Luther King, Jr. Day", :regions => [:us]},
             {:function => lambda { |year| Holidays.us_inauguration_day(year) }, :function_id => "us_inauguration_day(year)", :name => "Inauguration Day", :regions => [:us_dc]}],
       2 => [{:wday => 1, :week => 3, :name => "Presidents' Day", :regions => [:us]},
@@ -37,10 +37,10 @@ module Holidays
       11 => [{:mday => 11, :observed => lambda { |date| Holidays.to_weekday_if_weekend(date) }, :observed_id => "to_weekday_if_weekend", :name => "Veterans Day", :regions => [:us]},
             {:wday => 4, :week => 4, :name => "Thanksgiving", :regions => [:us]}],
       #12 => [{:mday => 25, :observed => lambda { |date| Holidays.to_weekday_if_weekend(date) }, :observed_id => "to_weekday_if_weekend", :name => "Christmas Day", :regions => [:us]}],
-      12 => [{:mday => 24, :name => "Christmas Eve", :regions => [:us]},
-             {:mday => 25, :name => "Christmas Day", :regions => [:us]},
-            {:mday => 26, :name => "Boxing Day", :regions => [:us]},
-            {:mday => 31, :name => "New Years Eve", :regions => [:us]}],
+      12 => [{:mday => 24, :name => "Christmas Eve", :regions => [:us, :ca]},
+             {:mday => 25, :name => "Christmas Day", :regions => [:us, :ca]},
+            {:mday => 26, :name => "Boxing Day", :regions => [:us, :ca]},
+            {:mday => 31, :name => "New Years Eve", :regions => [:us, :ca]}],
       3 => [{:mday => 17, :type => :informal, :name => "St. Patrick's Day", :regions => [:us, :ca]}],
       4 => [{:mday => 1, :type => :informal, :name => "April Fool's Day", :regions => [:us, :ca]},
             {:mday => 22, :type => :informal, :name => "Earth Day", :regions => [:us, :ca]}],
