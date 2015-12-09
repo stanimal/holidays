@@ -11,9 +11,9 @@ module Holidays
   #   require 'holidays/us'
   #
   # All the definitions are available at https://github.com/alexdunae/holidays
-  module Jewlr # :nodoc:
+  module Bogarz # :nodoc:
     def self.defined_regions
-      [:jewlr]
+      [:bogarz]
     end
 
     def self.holidays_by_month
