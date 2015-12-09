@@ -70,4 +70,4 @@ module Holidays
 
 end
 
-Holidays.merge_defs(Holidays::Jewlr.defined_regions, Holidays::Jewlr.holidays_by_month)
+Holidays.merge_defs(Holidays::Bogarz.defined_regions, Holidays::Bogarz.holidays_by_month)
