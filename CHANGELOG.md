@@ -1,4 +1,9 @@
 # Ruby Holidays Gem CHANGELOG
+## 1.0.11
+* Created Jewlr specific holiday data
+
+## 1.0.10
+* Added some dates to us and ca locales
 
 ## 1.0.7
 

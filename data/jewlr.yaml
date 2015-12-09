@@ -1,0 +1,102 @@
+# Canadian holiday definitions for the Ruby Holiday gem.
+# Updated 2014-11-12.
+---
+months:
+  0:
+  - name: Good Friday
+    regions: [jewlr, bogarz]
+    function: easter(year)-2
+  1:
+  - name: New Year's Day
+    regions: [jewlr, bogarz]
+    mday: 1
+    observed: to_weekday_if_weekend
+  2:
+  - name: Family Day
+    regions: [jewlr]
+    wday: 1
+    week: 3
+  5:
+  - name: Victoria Day
+    regions: [jewlr]
+    function: ca_victoria_day(year)
+  - name: Memorial Day
+    week: -1
+    regions: [bogarz]
+    wday: 1
+  7:
+  - name: Canada Day
+    regions: [jewlr]
+    mday: 1
+    observed: to_monday_if_sunday
+  - name: Independence Day
+    regions: [bogarz]
+    mday: 4
+    observed: to_weekday_if_weekend
+  8:
+  - name: Civic Holiday
+    week: 1
+    regions: [jewlr] # Appears to be a holiday in Ontario by convention
+    wday: 1
+  9:
+  - name: Labor Day
+    week: 1
+    regions: [jewlr, bogarz]
+    wday: 1
+  10:
+  - name: Thanksgiving
+    week: 2
+    regions: [jewlr]
+    wday: 1
+  11:
+  - name: Thanksgiving
+    week: 4
+    regions: [bogarz]
+    wday: 4
+  12:
+  - name: Christmas Eve
+    regions: [jewlr, bogarz]
+    mday: 24
+  - name: Christmas Day
+    regions: [jewlr, bogarz]
+    mday: 25
+    observed: to_weekday_if_weekend
+  - name: Boxing Day
+    regions: [jewlr]
+    mday: 26
+    observed: to_weekday_if_weekend
+  - name: New Years Eve
+    regions: [jewlr, bogarz]
+    mday: 31
+
+
+methods:
+  ca_victoria_day: |
+    # Monday on or before May 24
+    def self.ca_victoria_day(year)
+      date = Date.civil(year,5,24)
+      if date.wday > 1
+        date -= (date.wday - 1)
+      elsif date.wday == 0
+        date -= 6
+      end
+      date
+    end
+tests: |
+    {Date.civil(2008,1,1) => 'New Year\'s Day',
+     Date.civil(2008,3,21) => 'Good Friday',
+     Date.civil(2008,5,19) => 'Victoria Day',
+     Date.civil(2008,7,1) => 'Canada Day',
+     Date.civil(2008,9,1) => 'Labour Day',
+     Date.civil(2008,10,13) => 'Thanksgiving',
+     Date.civil(2008,12,25) => 'Christmas Day',
+     Date.civil(2008,12,26) => 'Boxing Day'}.each do |date, name|
+      assert_equal name, (Holidays.on(date, :ca, :informal)[0] || {})[:name]
+    end
+
+    # Victoria Day
+    [Date.civil(2004,5,24), Date.civil(2005,5,23), Date.civil(2006,5,22),
+     Date.civil(2007,5,21), Date.civil(2008,5,19)].each do |date|
+      assert_equal 'Victoria Day', Holidays.on(date, :ca)[0][:name]
+    end
+
