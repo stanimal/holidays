@@ -18,55 +18,30 @@ module Holidays
 
     def self.holidays_by_month
       {
-      0 =>  [
-              {:function => lambda { |year| Holidays.easter(year)-2 }, :function_id => "easter(year)-2", :type => :informal, :name => "Good Friday", :regions => [:jewlr]}
-            ],
       1 =>  [
-              {:mday => 1, :observed => lambda { |date| Holidays.to_weekday_if_weekend(date) }, :observed_id => "to_weekday_if_weekend", :name => "New Year's Day", :regions => [:jewlr, :bogarz]}
+              {:mday => 1, :observed => lambda { |date| Holidays.to_weekday_if_weekend(date) }, :observed_id => "to_weekday_if_weekend", :name => "New Year's Day", :regions => [:bogarz]}
             ],
       2 =>  [
               {:wday => 1, :week => 3, :name => "Family Day", :regions => [:jewlr]}
             ],
-      5 =>  [
-              {:function => lambda { |year| Holidays.ca_victoria_day(year) }, :function_id => "ca_victoria_day(year)", :name => "Victoria Day", :regions => [:jewlr]},
-              {:wday => 1, :week => -1, :name => "Memorial Day", :regions => [:bogarz]}
-            ],
       7 =>  [
-              {:mday => 1, :observed => lambda { |date| Holidays.to_monday_if_sunday(date) }, :observed_id => "to_monday_if_sunday", :name => "Canada Day", :regions => [:jewlr]},
               {:mday => 4, :observed => lambda { |date| Holidays.to_weekday_if_weekend(date) }, :observed_id => "to_weekday_if_weekend", :name => "Independence Day", :regions => [:bogarz]}
             ],
-      8 =>  [
-              {:wday => 1, :week => 1, :name => "Civic Holiday", :regions => [:jewlr]}
-            ],
       9 =>  [
-              {:wday => 1, :week => 1, :name => "Labor Day", :regions => [:jewlr, :bogarz]}
-            ],
-      10 => [
-              {:wday => 1, :week => 2, :name => "Thanksgiving", :regions => [:jewlr]}
+              {:wday => 1, :week => 1, :name => "Labor Day", :regions => [:bogarz]}
             ],
       11 => [
               {:wday => 4, :week => 4, :name => "Thanksgiving", :regions => [:bogarz]}
             ],
       12 => [
-              {:mday => 24, :name => "Christmas Eve", :regions => [:jewlr, :bogarz]},
-              {:mday => 25, :observed => lambda { |date| Holidays.to_weekday_if_weekend(date) }, :observed_id => "to_weekday_if_weekend", :name => "Christmas Day", :regions => [:jewlr, :bogarz]},
-              {:mday => 26, :observed => lambda { |date| Holidays.to_weekday_if_weekend(date) }, :observed_id => "to_weekday_if_weekend", :name => "Boxing Day", :regions => [:jewlr]},
-              {:mday => 31, :name => "New Years Eve", :regions => [:jewlr, :bogarz]}
+              {:mday => 24, :name => "Christmas Eve", :regions => [:bogarz]},
+              {:mday => 25, :observed => lambda { |date| Holidays.to_weekday_if_weekend(date) }, :observed_id => "to_weekday_if_weekend", :name => "Christmas Day", :regions => [:bogarz]},
+              {:mday => 31, :name => "New Years Eve", :regions => [:bogarz]}
             ]
       }
     end
   end
 
-  # Monday on or before May 24
-  def self.ca_victoria_day(year)
-    date = Date.civil(year,5,24)
-    if date.wday > 1
-      date -= (date.wday - 1)
-    elsif date.wday == 0
-      date -= 6
-    end
-    date
-  end
 
 end
 

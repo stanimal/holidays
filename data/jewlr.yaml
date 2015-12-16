@@ -1,14 +1,14 @@
-# Canadian holiday definitions for the Ruby Holiday gem.
-# Updated 2014-11-12.
+# Jewlr holiday definitions for the Ruby Holiday gem.
+# Updated 2015-12-16.
 ---
 months:
   0:
   - name: Good Friday
-    regions: [jewlr, bogarz]
+    regions: [jewlr]
     function: easter(year)-2
   1:
   - name: New Year's Day
-    regions: [jewlr, bogarz]
+    regions: [jewlr]
     mday: 1
     observed: to_weekday_if_weekend
   2:
@@ -20,45 +20,32 @@ months:
   - name: Victoria Day
     regions: [jewlr]
     function: ca_victoria_day(year)
-  - name: Memorial Day
-    week: -1
-    regions: [bogarz]
-    wday: 1
   7:
   - name: Canada Day
     regions: [jewlr]
     mday: 1
     observed: to_monday_if_sunday
-  - name: Independence Day
-    regions: [bogarz]
-    mday: 4
-    observed: to_weekday_if_weekend
   8:
   - name: Civic Holiday
     week: 1
     regions: [jewlr] # Appears to be a holiday in Ontario by convention
     wday: 1
   9:
-  - name: Labor Day
+  - name: Labour Day
     week: 1
-    regions: [jewlr, bogarz]
+    regions: [jewlr]
     wday: 1
   10:
   - name: Thanksgiving
     week: 2
     regions: [jewlr]
     wday: 1
-  11:
-  - name: Thanksgiving
-    week: 4
-    regions: [bogarz]
-    wday: 4
   12:
   - name: Christmas Eve
-    regions: [jewlr, bogarz]
+    regions: [jewlr]
     mday: 24
   - name: Christmas Day
-    regions: [jewlr, bogarz]
+    regions: [jewlr]
     mday: 25
     observed: to_weekday_if_weekend
   - name: Boxing Day
@@ -66,7 +53,7 @@ months:
     mday: 26
     observed: to_weekday_if_weekend
   - name: New Years Eve
-    regions: [jewlr, bogarz]
+    regions: [jewlr]
     mday: 31
 
 

@@ -1,4 +1,7 @@
 # Ruby Holidays Gem CHANGELOG
+## 1.0.12
+* Remove duplicate entries between jewlr and bogarz
+
 ## 1.0.11
 * Created Jewlr specific holiday data
 
