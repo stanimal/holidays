@@ -35,9 +35,7 @@ module Holidays
             ],
       12 => [
               #{:mday => 24, :observed => lambda { |date| Holidays.to_friday_if_weekend(date) }, :observed_id => "to_weekday_if_weekend", :name => "Christmas Eve", :regions => [:bogarzshipping]},
-              {:mday => 24, :name => "Christmas Eve", :regions => [:bogarzshipping]},
-              {:mday => 25, :observed => lambda { |date| Holidays.to_weekday_if_weekend(date) }, :observed_id => "to_weekday_if_weekend", :name => "Christmas Day", :regions => [:bogarzshipping]},
-              {:mday => 31, :observed => lambda { |date| Holidays.to_friday_if_weekend(date) }, :observed_id => "to_weekday_if_weekend", :name => "New Year's Eve", :regions => [:bogarzshipping]}
+              {:mday => 25, :observed => lambda { |date| Holidays.to_weekday_if_weekend(date) }, :observed_id => "to_weekday_if_weekend", :name => "Christmas Day", :regions => [:bogarzshipping]}
             ]
       }
     end
